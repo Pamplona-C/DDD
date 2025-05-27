@@ -4,22 +4,26 @@ import estudos.kotlin.Objects.callisthenics.domain.Book
 import estudos.kotlin.Objects.callisthenics.domain.dto.BookRequestDto
 import org.springframework.stereotype.Service
 import estudos.kotlin.Objects.callisthenics.repository.BookRepository
+import jakarta.transaction.Transactional
 
 @Service
-class BookService {
+class BookService(
+    private val bookRepository: BookRepository
+) {
 
-    //modificador de visibilidade e inicializados ou marcados como lateinit se forem injetados pelo spring
-    private lateinit var bookRepository: BookRepository
-
+    @Transactional
     fun createBook(book: BookRequestDto): Book {
 
-        val book = Book(
+        println("Livro recebido ${book.title} do autor ${book.author} no ano ${book.year}")
+
+        val newBook = Book(
             title = book.title,
             author = book.author,
             year = book.year
         )
-
-        return bookRepository.save(book)
+        val savedBook = bookRepository.save(newBook)
+        println("Livro salvo com sucesso: ${savedBook}")
+        return savedBook
     }
 
     fun getAllBooks(): List<Book> {
