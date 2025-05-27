@@ -1,7 +1,9 @@
 package estudos.kotlin.Objects.callisthenics.domain.dto
 
 data class BookRequestDto(
-    val title: String,
-    val author: String,
-    val year: Int
+    val id : Long,
+    val title: String? = null,
+    val author: String? = null,
+    val year: Int? = null,
+    val isRead: Boolean? = false
 )

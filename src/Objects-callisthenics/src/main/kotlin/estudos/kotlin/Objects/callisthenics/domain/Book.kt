@@ -9,7 +9,8 @@ data class Book(
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     val id: Long? = null,
-    val title: String,
-    val author: String,
-    val year: Int
+    var title: String? = null,
+    var author: String? = null,
+    var year: Int? = null,
+    var isRead : Boolean? = false,
 )

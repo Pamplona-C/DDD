@@ -4,6 +4,7 @@ data class BookResponseDto(
     val id: Long,
     val title: String,
     val author: String,
-    val year: Int
+    val year: Int,
+    val isRead: Boolean? = false
 ) {
 }
