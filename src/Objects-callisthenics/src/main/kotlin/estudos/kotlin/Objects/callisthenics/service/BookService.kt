@@ -46,16 +46,20 @@ class BookService(
         }
     }
 
-    fun deleteBookById(id: Long) {
+    fun deleteBookById(id: Long) :Book? {
         if (id <= 0) {
             throw IllegalArgumentException("ID precisa ser maior que 0")
         }
-        if (bookRepository.existsById(id)) {
-            bookRepository.deleteById(id)
-            println("Livro com ID $id deletado com sucesso.")
-        } else {
-            println("Livro com ID $id não encontrado para deleção.")
+        if (!bookRepository.existsById(id)) {
+            throw IllegalArgumentException("Livro não existe !")
         }
+
+        val bookDeleted = bookRepository.findById(id).orElse(null)
+
+        bookRepository.deleteById(id)
+
+        return bookDeleted
+
     }
 
     fun updateBook(book: BookRequestDto): Book {
