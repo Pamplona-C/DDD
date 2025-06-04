@@ -1,8 +1,8 @@
-package estudos.kotlin.Objects.callisthenics.controller
+package booksProject.controller.book
 
-import estudos.kotlin.Objects.callisthenics.domain.Book
-import estudos.kotlin.Objects.callisthenics.domain.dto.BookRequestDto
-import estudos.kotlin.Objects.callisthenics.service.BookService
+import booksProject.domain.Book.dto.BookRequestDto
+import booksProject.domain.Book.dto.BookResponseDto
+import booksProject.service.book.BookService
 import io.swagger.v3.oas.annotations.Operation
 import org.springframework.web.bind.annotation.*
 
@@ -13,7 +13,7 @@ class BookController(
 ) {
     @GetMapping
     @Operation(summary = "Get all books")
-    fun getAllBooks(): List<Book> {
+    fun getAllBooks(): List<BookResponseDto> {
         val books = bookService.getAllBooks()
         println("Books from DB: $books")
         return books
@@ -29,7 +29,7 @@ class BookController(
 
     @PutMapping("/update")
     @Operation(summary = "Update an existing book")
-    fun updateBook(@RequestBody updateBook : BookRequestDto) = bookService.updateBook(updateBook)
+    fun updateBook(@RequestParam id : Long, @RequestBody updateBook : BookRequestDto) = bookService.updateBook(id,updateBook)
 
     @PutMapping("/updateRead/{id}")
     @Operation(summary = "Update the read status of a book")

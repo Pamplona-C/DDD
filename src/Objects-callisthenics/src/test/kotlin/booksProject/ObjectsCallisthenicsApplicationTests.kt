@@ -1,4 +1,4 @@
-package estudos.kotlin.Objects.callisthenics
+package booksProject
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

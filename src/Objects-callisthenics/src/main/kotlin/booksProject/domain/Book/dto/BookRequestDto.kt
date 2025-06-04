@@ -1,7 +1,6 @@
-package estudos.kotlin.Objects.callisthenics.domain.dto
+package booksProject.domain.Book.dto
 
 data class BookRequestDto(
-    val id : Long,
     val title: String? = null,
     val author: String? = null,
     val year: Int? = null,

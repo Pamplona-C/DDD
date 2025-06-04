@@ -1,4 +1,4 @@
-package estudos.kotlin.Objects.callisthenics.domain
+package booksProject.domain.Book
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue

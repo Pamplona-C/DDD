@@ -1,6 +1,6 @@
-package estudos.kotlin.Objects.callisthenics.repository
+package booksProject.repository.Book
 import org.springframework.data.jpa.repository.JpaRepository;
-import estudos.kotlin.Objects.callisthenics.domain.Book
+import booksProject.domain.Book.Book
 
 import org.springframework.stereotype.Repository
 

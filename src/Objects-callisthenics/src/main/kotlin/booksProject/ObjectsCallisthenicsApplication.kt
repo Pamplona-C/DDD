@@ -1,4 +1,4 @@
-package estudos.kotlin.Objects.callisthenics
+package booksProject
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
